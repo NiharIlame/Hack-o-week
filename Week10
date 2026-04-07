@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Book Catalogue</title>
+
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            background: #f4f6f9;
+        }
+
+        header {
+            background: #1e3a8a;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 30px auto;
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            margin-top: 0;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+
+        .buttons {
+            margin-top: 15px;
+        }
+
+        button {
+            padding: 10px 16px;
+            margin-right: 10px;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .add {
+            background: #16a34a;
+            color: white;
+        }
+
+        .remove {
+            background: #dc2626;
+            color: white;
+        }
+
+        .search {
+            background: #2563eb;
+            color: white;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 25px;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background: #1e3a8a;
+            color: white;
+            padding: 12px;
+        }
+
+        td {
+            padding: 10px;
+            text-align: center;
+        }
+
+        footer {
+            text-align: center;
+            padding: 15px;
+            color: #555;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>📚 Library Book Catalogue System</h1>
+    <p>Manage Books Using Fixed-Size Collection</p>
+</header>
+
+<div class="container">
+
+    <h2>Add / Remove / Search Book</h2>
+
+    <div class="form-group">
+        <label>Book Title</label>
+        <input type="text" placeholder="Enter book title">
+    </div>
+
+    <div class="form-group">
+        <label>Author Name</label>
+        <input type="text" placeholder="Enter author name">
+    </div>
+
+    <div class="buttons">
+        <button class="add">Add Book</button>
+        <button class="remove">Remove Book</button>
+        <button class="search">Search Book</button>
+    </div>
+
+    <h2>Book List</h2>
+
+    <table>
+        <tr>
+            <th>Book ID</th>
+            <th>Title</th>
+            <th>Author</th>
+        </tr>
+
+        <tr>
+            <td>1</td>
+            <td>C Programming</td>
+            <td>Dennis Ritchie</td>
+        </tr>
+
+        <tr>
+            <td>2</td>
+            <td>Data Structures</td>
+            <td>Mark Weiss</td>
+        </tr>
+
+    </table>
+
+</div>
+
+<footer>
+    © 2026 Library Catalogue Project | HTML + CSS
+</footer>
+
+</body>
+</html>
