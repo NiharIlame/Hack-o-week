@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Satva Botanique | Pure Vegetarian Fine Dining</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+
+<style>
+:root{
+    --green:#2f5d50;
+    --gold:#c6a75e;
+    --ivory:#f7f4ef;
+    --brown:#3a2f25;
+    --price:#2b1f16;
+}
+body{
+    margin:0;
+    font-family:'Poppins',sans-serif;
+    background:var(--ivory);
+    color:var(--brown);
+}
+.container{
+    max-width:1100px;
+    margin:auto;
+    padding:25px;
+}
+header{
+    text-align:center;
+    padding:45px 20px;
+    border-bottom:2px solid var(--gold);
+}
+header h1{
+    font-family:'Playfair Display',serif;
+    font-size:48px;
+    color:var(--green);
+}
+header p{letter-spacing:3px;font-size:14px;}
+.veg-badge{
+    margin-top:15px;
+    padding:6px 18px;
+    border:1px solid var(--green);
+    color:var(--green);
+    display:inline-block;
+    font-size:12px;
+}
+.section{margin:55px 0;}
+.section h2{
+    font-family:'Playfair Display',serif;
+    font-size:32px;
+    color:var(--green);
+    border-bottom:1px solid var(--gold);
+    padding-bottom:10px;
+    margin-bottom:25px;
+}
+.menu-item{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    font-size:15.5px;
+    font-weight:500;
+}
+.price{color:var(--price);font-weight:700;}
+.add-btn{
+    margin-left:10px;
+    background:var(--green);
+    color:#fff;
+    border:none;
+    padding:3px 8px;
+    font-size:11px;
+    cursor:pointer;
+}
+.desc{
+    font-size:12.5px;
+    color:#6b5f55;
+    margin-bottom:20px;
+}
+.cart{
+    border:1px solid var(--gold);
+    padding:20px;
+    background:#fff;
+    margin-top:60px;
+}
+.cart h3{
+    font-family:'Playfair Display',serif;
+    color:var(--green);
+}
+.cart-item{
+    display:flex;
+    justify-content:space-between;
+    font-size:13px;
+}
+.total{font-weight:700;margin-top:10px;}
+.order-btn{
+    margin-top:15px;
+    background:var(--green);
+    color:#fff;
+    border:none;
+    padding:8px 15px;
+    cursor:pointer;
+}
+footer{
+    text-align:center;
+    padding:30px;
+    border-top:1px solid var(--gold);
+    font-size:12px;
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+
+<header>
+<h1>Satva Botanique</h1>
+<p>PURE VEGETARIAN • BOTANICAL FINE DINING</p>
+<div class="veg-badge">100% VEGETARIAN</div>
+</header>
+
+<!-- MAHARASHTRIAN -->
+<div class="section">
+<h2>Maharashtrian Specialities</h2>
+
+<div class="menu-item"><span>Pithla Bhakri Royale</span><span><span class="price">₹587</span><button class="add-btn" onclick="addToCart('Pithla Bhakri Royale',587)">Add</button></span></div>
+<div class="desc">Traditional gram flour curry with jowar bhakri</div>
+
+<div class="menu-item"><span>Bharli Vangi</span><span><span class="price">₹627</span><button class="add-btn" onclick="addToCart('Bharli Vangi',627)">Add</button></span></div>
+<div class="desc">Stuffed brinjals in peanut-coconut gravy</div>
+
+<div class="menu-item"><span>Misal Satva</span><span><span class="price">₹547</span><button class="add-btn" onclick="addToCart('Misal Satva',547)">Add</button></span></div>
+<div class="desc">Sprouted curry with farsan & pav</div>
+
+<div class="menu-item"><span>Puran Poli</span><span><span class="price">₹377</span><button class="add-btn" onclick="addToCart('Puran Poli',377)">Add</button></span></div>
+<div class="desc">Sweet flatbread with jaggery & lentils</div>
+</div>
+
+<!-- INDIAN -->
+<div class="section">
+<h2>Indian Cuisine – Satva Signatures</h2>
+
+<div class="menu-item"><span>Paneer Lababdar Royale</span><span><span class="price">₹827</span><button class="add-btn" onclick="addToCart('Paneer Lababdar Royale',827)">Add</button></span></div>
+<div class="desc">Tomato-cashew gravy finished with butter</div>
+
+<div class="menu-item"><span>Dal Makhani Satva</span><span><span class="price">₹657</span><button class="add-btn" onclick="addToCart('Dal Makhani Satva',657)">Add</button></span></div>
+<div class="desc">24-hour slow cooked black lentils</div>
+
+<div class="menu-item"><span>Shahi Paneer Korma</span><span><span class="price">₹777</span><button class="add-btn" onclick="addToCart('Shahi Paneer Korma',777)">Add</button></span></div>
+<div class="desc">Royal Mughlai gravy with saffron</div>
+
+<div class="menu-item"><span>Palak Paneer Classic</span><span><span class="price">₹747</span><button class="add-btn" onclick="addToCart('Palak Paneer Classic',747)">Add</button></span></div>
+<div class="desc">Spinach purée tempered with garlic</div>
+
+<div class="menu-item"><span>Vegetable Kolhapuri</span><span><span class="price">₹717</span><button class="add-btn" onclick="addToCart('Vegetable Kolhapuri',717)">Add</button></span></div>
+<div class="desc">Traditional spicy Maharashtrian gravy</div>
+
+<div class="menu-item"><span>Hyderabadi Vegetable Biryani</span><span><span class="price">₹787</span><button class="add-btn" onclick="addToCart('Hyderabadi Vegetable Biryani',787)">Add</button></span></div>
+<div class="desc">Aromatic basmati rice & herbs</div>
+
+<div class="menu-item"><span>Assorted Indian Breads</span><span><span class="price">₹187</span><button class="add-btn" onclick="addToCart('Assorted Indian Breads',187)">Add</button></span></div>
+<div class="desc">Butter naan, garlic naan, jowar bhakri</div>
+</div>
+
+<!-- ITALIAN -->
+<div class="section">
+<h2>Italian Classics</h2>
+
+<div class="menu-item"><span>Truffle Mushroom Risotto</span><span><span class="price">₹987</span><button class="add-btn" onclick="addToCart('Truffle Mushroom Risotto',987)">Add</button></span></div>
+<div class="desc">Creamy arborio rice with wild mushrooms</div>
+
+<div class="menu-item"><span>Penne Alfredo Verde</span><span><span class="price">₹827</span><button class="add-btn" onclick="addToCart('Penne Alfredo Verde',827)">Add</button></span></div>
+<div class="desc">Creamy parmesan sauce with vegetables</div>
+
+<div class="menu-item"><span>Spinach & Ricotta Ravioli</span><span><span class="price">₹867</span><button class="add-btn" onclick="addToCart('Spinach & Ricotta Ravioli',867)">Add</button></span></div>
+<div class="desc">Hand-filled pasta with sage butter</div>
+</div>
+
+<!-- NEAPOLITAN -->
+<div class="section">
+<h2>Neapolitan Pizzas</h2>
+
+<div class="menu-item"><span>Margherita D.O.P</span><span><span class="price">₹877</span><button class="add-btn" onclick="addToCart('Margherita D.O.P',877)">Add</button></span></div>
+<div class="desc">San Marzano tomatoes, mozzarella, basil</div>
+
+<div class="menu-item"><span>Funghi Truffle</span><span><span class="price">₹937</span><button class="add-btn" onclick="addToCart('Funghi Truffle',937)">Add</button></span></div>
+<div class="desc">Wild mushrooms, truffle oil</div>
+
+<div class="menu-item"><span>Verdure Classica</span><span><span class="price">₹917</span><button class="add-btn" onclick="addToCart('Verdure Classica',917)">Add</button></span></div>
+<div class="desc">Seasonal vegetables & herbs</div>
+</div>
+
+<!-- FRENCH -->
+<div class="section">
+<h2>French Cuisine</h2>
+
+<div class="menu-item"><span>Ratatouille Provençale</span><span><span class="price">₹867</span><button class="add-btn" onclick="addToCart('Ratatouille Provençale',867)">Add</button></span></div>
+<div class="desc">Slow-cooked vegetables with olive oil</div>
+
+<div class="menu-item"><span>Mushroom Bourguignon</span><span><span class="price">₹927</span><button class="add-btn" onclick="addToCart('Mushroom Bourguignon',927)">Add</button></span></div>
+<div class="desc">Red wine braised mushrooms</div>
+
+<div class="menu-item"><span>Gratin Dauphinois</span><span><span class="price">₹787</span><button class="add-btn" onclick="addToCart('Gratin Dauphinois',787)">Add</button></span></div>
+<div class="desc">Creamy baked potato gratin</div>
+</div>
+
+<!-- SPANISH -->
+<div class="section">
+<h2>Spanish Delights</h2>
+
+<div class="menu-item"><span>Vegetable Paella</span><span><span class="price">₹897</span><button class="add-btn" onclick="addToCart('Vegetable Paella',897)">Add</button></span></div>
+<div class="desc">Saffron rice with vegetables</div>
+
+<div class="menu-item"><span>Patatas Bravas</span><span><span class="price">₹527</span><button class="add-btn" onclick="addToCart('Patatas Bravas',527)">Add</button></span></div>
+<div class="desc">Crispy potatoes with aioli</div>
+
+<div class="menu-item"><span>Grilled Vegetable Tapas</span><span><span class="price">₹687</span><button class="add-btn" onclick="addToCart('Grilled Vegetable Tapas',687)">Add</button></span></div>
+<div class="desc">Mediterranean vegetables</div>
+</div>
+
+<!-- BEVERAGES -->
+<div class="section">
+<h2>Beverages & Mocktails</h2>
+
+<div class="menu-item"><span>Botanical Mint Cooler</span><span><span class="price">₹327</span><button class="add-btn" onclick="addToCart('Botanical Mint Cooler',327)">Add</button></span></div>
+
+<div class="menu-item"><span>Saffron Rose Fizz</span><span><span class="price">₹367</span><button class="add-btn" onclick="addToCart('Saffron Rose Fizz',367)">Add</button></span></div>
+
+<div class="menu-item"><span>Masala Chaas</span><span><span class="price">₹187</span><button class="add-btn" onclick="addToCart('Masala Chaas',187)">Add</button></span></div>
+
+<div class="menu-item"><span>Artisan Herbal Tea</span><span><span class="price">₹247</span><button class="add-btn" onclick="addToCart('Artisan Herbal Tea',247)">Add</button></span></div>
+</div>
+
+<!-- CART -->
+<div class="cart">
+<h3>Your Order</h3>
+<div id="cartItems"></div>
+<div class="total">Total: ₹<span id="total">0</span></div>
+<button class="order-btn" onclick="orderWhatsApp()">Order via WhatsApp</button>
+<button class="order-btn" onclick="payUPI()">Pay via UPI / Debit Card</button>
+<p style="font-size:12px;margin-top:10px;">UPI: GPay • PhonePe • Paytm • BHIM • Debit Card supported</p>
+</div>
+
+<footer>
+<p><strong>Contact Us</strong></p>
+<p>📞 9999922222</p>
+<p>✉️ satvabotanique7@gmail.com</p>
+<p>© Satva Botanique</p>
+</footer>
+
+</div>
+
+<script>
+let cart=[], total=0;
+function addToCart(n,p){cart.push({n,p});total+=p;render();}
+function render(){
+  let c=document.getElementById("cartItems");c.innerHTML="";
+  cart.forEach(i=>c.innerHTML+=`<div class="cart-item"><span>${i.n}</span><span>₹${i.p}</span></div>`);
+  document.getElementById("total").innerText=total;
+}
+function orderWhatsApp(){
+  let m="Order from Satva Botanique:%0A";
+  cart.forEach(i=>m+=`- ${i.n} ₹${i.p}%0A`);
+  m+=`Total: ₹${total}`;
+  window.open("https://wa.me/919999922222?text="+m);
+}
+function payUPI(){
+  if(total==0){alert("Please add items first");return;}
+  window.location.href=`upi://pay?pa=satvabotanique7@upi&pn=Satva%20Botanique&am=${total}&cu=INR`;
+}
+</script>
+
+</body>
+</html>
+
+
