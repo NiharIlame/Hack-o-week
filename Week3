@@ -1,0 +1,1294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sport Spectra 5.0 - Registration</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #1a0a0a 0%, #2d0a0a 25%, #3d0c0c 50%, #2a0808 75%, #1a0505 100%);
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Animated Background */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: 0;
+        }
+
+        /* Red Particles */
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: #ff3333;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #ff3333, 0 0 20px #ff0000;
+            animation: particleFloat 8s infinite ease-in-out;
+        }
+
+        @keyframes particleFloat {
+            0%, 100% {
+                transform: translateY(100vh) scale(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+                transform: translateY(90vh) scale(1);
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-10vh) scale(0);
+                opacity: 0;
+            }
+        }
+
+        .floating-icon {
+            position: absolute;
+            font-size: 2rem;
+            opacity: 0.2;
+            animation: float 15s infinite ease-in-out;
+            filter: drop-shadow(0 0 10px rgba(255, 0, 0, 0.5));
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.2;
+            }
+            90% {
+                opacity: 0.2;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Glowing Orbs - Red Theme */
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(100px);
+            animation: orbMove 20s infinite ease-in-out;
+        }
+
+        .orb1 {
+            width: 500px;
+            height: 500px;
+            background: rgba(255, 0, 0, 0.25);
+            top: -250px;
+            left: -250px;
+        }
+
+        .orb2 {
+            width: 400px;
+            height: 400px;
+            background: rgba(255, 50, 50, 0.2);
+            bottom: -200px;
+            right: -200px;
+            animation-delay: -10s;
+        }
+
+        .orb3 {
+            width: 300px;
+            height: 300px;
+            background: rgba(255, 100, 100, 0.15);
+            top: 50%;
+            left: 50%;
+            animation-delay: -5s;
+        }
+
+        .orb4 {
+            width: 200px;
+            height: 200px;
+            background: rgba(255, 200, 0, 0.1);
+            top: 20%;
+            right: 10%;
+            animation-delay: -7s;
+        }
+
+        @keyframes orbMove {
+            0%, 100% {
+                transform: translate(0, 0) scale(1);
+            }
+            25% {
+                transform: translate(50px, 50px) scale(1.1);
+            }
+            50% {
+                transform: translate(-30px, 80px) scale(0.9);
+            }
+            75% {
+                transform: translate(80px, -30px) scale(1.05);
+            }
+        }
+
+        /* Grid Lines Background */
+        .grid-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(255, 0, 0, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 0, 0, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            z-index: 0;
+        }
+
+        /* Main Container */
+        .container {
+            position: relative;
+            z-index: 1;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px;
+        }
+
+        /* Registration Card */
+        .registration-card {
+            background: linear-gradient(145deg, rgba(50, 10, 10, 0.9), rgba(30, 5, 5, 0.95));
+            backdrop-filter: blur(20px);
+            border-radius: 30px;
+            padding: 50px 40px;
+            width: 100%;
+            max-width: 520px;
+            border: 2px solid rgba(255, 50, 50, 0.3);
+            box-shadow: 
+                0 25px 60px rgba(0, 0, 0, 0.5),
+                0 0 100px rgba(255, 0, 0, 0.1),
+                inset 0 1px 0 rgba(255, 100, 100, 0.1);
+            animation: cardAppear 1s ease-out;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .registration-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 50, 50, 0.1), transparent);
+            animation: shine 4s infinite;
+        }
+
+        .registration-card::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 0, 0, 0.03) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes shine {
+            0% {
+                left: -100%;
+            }
+            50%, 100% {
+                left: 100%;
+            }
+        }
+
+        @keyframes cardAppear {
+            from {
+                opacity: 0;
+                transform: translateY(50px) scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        /* Logo Section */
+        .logo-section {
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .logo-icon {
+            font-size: 4rem;
+            margin-bottom: 15px;
+            animation: logoFloat 3s ease-in-out infinite;
+            filter: drop-shadow(0 0 20px rgba(255, 50, 50, 0.5));
+        }
+
+        @keyframes logoFloat {
+            0%, 100% {
+                transform: translateY(0) rotate(-5deg);
+            }
+            50% {
+                transform: translateY(-10px) rotate(5deg);
+            }
+        }
+
+        .logo {
+            font-size: 2.8rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            background: linear-gradient(135deg, #ff3333, #ff6666, #ff0000, #cc0000, #ff4444);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradientMove 4s ease infinite;
+            text-shadow: 0 0 30px rgba(255, 0, 0, 0.5);
+            position: relative;
+        }
+
+        .logo-line {
+            display: block;
+            font-size: 3.2rem;
+            letter-spacing: 5px;
+        }
+
+        @keyframes gradientMove {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .logo span {
+            display: inline-block;
+            animation: bounce 0.6s ease infinite;
+        }
+
+        .logo span:nth-child(1) { animation-delay: 0s; }
+        .logo span:nth-child(2) { animation-delay: 0.05s; }
+        .logo span:nth-child(3) { animation-delay: 0.1s; }
+        .logo span:nth-child(4) { animation-delay: 0.15s; }
+        .logo span:nth-child(5) { animation-delay: 0.2s; }
+        .logo span:nth-child(6) { animation-delay: 0.25s; }
+        .logo span:nth-child(7) { animation-delay: 0.3s; }
+        .logo span:nth-child(8) { animation-delay: 0.35s; }
+        .logo span:nth-child(9) { animation-delay: 0.4s; }
+        .logo span:nth-child(10) { animation-delay: 0.45s; }
+        .logo span:nth-child(11) { animation-delay: 0.5s; }
+        .logo span:nth-child(12) { animation-delay: 0.55s; }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-5px);
+            }
+        }
+
+        .version {
+            display: inline-block;
+            font-size: 1.4rem;
+            color: #fff;
+            font-weight: 800;
+            margin-top: 10px;
+            padding: 8px 25px;
+            background: linear-gradient(135deg, #ff0000, #cc0000);
+            border-radius: 30px;
+            box-shadow: 0 5px 20px rgba(255, 0, 0, 0.4);
+            animation: versionPulse 2s ease infinite;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .version::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            animation: versionShine 2s infinite;
+        }
+
+        @keyframes versionShine {
+            0% {
+                left: -100%;
+            }
+            50%, 100% {
+                left: 100%;
+            }
+        }
+
+        @keyframes versionPulse {
+            0%, 100% {
+                transform: scale(1);
+                box-shadow: 0 5px 20px rgba(255, 0, 0, 0.4);
+            }
+            50% {
+                transform: scale(1.05);
+                box-shadow: 0 8px 30px rgba(255, 0, 0, 0.6);
+            }
+        }
+
+        .tagline {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1rem;
+            margin-top: 15px;
+            font-weight: 500;
+        }
+
+        .tagline i {
+            color: #ff3333;
+            animation: heartbeat 1.5s ease infinite;
+            margin: 0 5px;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% {
+                transform: scale(1);
+            }
+            25% {
+                transform: scale(1.3);
+            }
+            50% {
+                transform: scale(1);
+            }
+            75% {
+                transform: scale(1.3);
+            }
+        }
+
+        /* Decorative Lines */
+        .decorative-line {
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #ff3333, transparent);
+            margin: 25px 0;
+            border-radius: 2px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Form Styles */
+        form {
+            position: relative;
+            z-index: 1;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+            position: relative;
+            animation: slideIn 0.6s ease-out forwards;
+            opacity: 0;
+        }
+
+        .form-group:nth-child(1) { animation-delay: 0.2s; }
+        .form-group:nth-child(2) { animation-delay: 0.3s; }
+        .form-group:nth-child(3) { animation-delay: 0.4s; }
+        .form-group:nth-child(4) { animation-delay: 0.5s; }
+        .form-group:nth-child(5) { animation-delay: 0.6s; }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .form-group label {
+            display: block;
+            color: rgba(255, 255, 255, 0.95);
+            font-weight: 600;
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .form-group label i {
+            color: #ff4444;
+            font-size: 1.1rem;
+            filter: drop-shadow(0 0 5px rgba(255, 68, 68, 0.5));
+        }
+
+        .input-wrapper {
+            position: relative;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 16px 20px;
+            border: 2px solid rgba(255, 50, 50, 0.3);
+            border-radius: 15px;
+            background: rgba(0, 0, 0, 0.3);
+            color: #fff;
+            font-size: 1rem;
+            font-family: 'Poppins', sans-serif;
+            transition: all 0.3s ease;
+            outline: none;
+        }
+
+        .form-group input::placeholder {
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            border-color: #ff3333;
+            box-shadow: 0 0 25px rgba(255, 50, 50, 0.4), inset 0 0 10px rgba(255, 50, 50, 0.1);
+            background: rgba(255, 50, 50, 0.1);
+        }
+
+        .form-group select {
+            cursor: pointer;
+            appearance: none;
+        }
+
+        .form-group select option {
+            background: #2d0a0a;
+            color: #fff;
+            padding: 10px;
+        }
+
+        .select-arrow {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: rgba(255, 100, 100, 0.7);
+            pointer-events: none;
+            transition: all 0.3s ease;
+        }
+
+        .form-group select:focus + .select-arrow {
+            transform: translateY(-50%) rotate(180deg);
+            color: #ff3333;
+        }
+
+        /* Sports Selection */
+        .sports-label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: rgba(255, 255, 255, 0.95);
+            font-weight: 600;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+
+        .sports-label i {
+            color: #ff4444;
+            font-size: 1.2rem;
+            filter: drop-shadow(0 0 5px rgba(255, 68, 68, 0.5));
+        }
+
+        .sports-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+        }
+
+        .sport-option {
+            position: relative;
+        }
+
+        .sport-option input {
+            display: none;
+        }
+
+        .sport-option label {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 18px 10px;
+            background: rgba(0, 0, 0, 0.3);
+            border: 2px solid rgba(255, 50, 50, 0.2);
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.8);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .sport-option label::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255, 0, 0, 0.2), rgba(200, 0, 0, 0.2));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .sport-option label i {
+            font-size: 2rem;
+            margin-bottom: 8px;
+            transition: all 0.3s ease;
+            color: rgba(255, 150, 150, 0.8);
+            position: relative;
+            z-index: 1;
+        }
+
+        .sport-option label span {
+            position: relative;
+            z-index: 1;
+        }
+
+        .sport-option input:checked + label {
+            background: linear-gradient(135deg, rgba(255, 0, 0, 0.4), rgba(180, 0, 0, 0.4));
+            border-color: #ff3333;
+            transform: scale(1.05);
+            box-shadow: 0 5px 25px rgba(255, 0, 0, 0.4);
+        }
+
+        .sport-option input:checked + label::before {
+            opacity: 1;
+        }
+
+        .sport-option input:checked + label i {
+            transform: scale(1.2) rotate(10deg);
+            color: #fff;
+            filter: drop-shadow(0 0 10px rgba(255, 100, 100, 0.8));
+        }
+
+        .sport-option label:hover {
+            background: rgba(255, 50, 50, 0.15);
+            transform: translateY(-3px);
+            border-color: rgba(255, 50, 50, 0.4);
+        }
+
+        /* Submit Button */
+        .submit-btn {
+            width: 100%;
+            padding: 18px;
+            border: none;
+            border-radius: 15px;
+            background: linear-gradient(135deg, #ff0000, #cc0000, #990000);
+            background-size: 200% 200%;
+            color: #fff;
+            font-size: 1.2rem;
+            font-weight: 700;
+            font-family: 'Poppins', sans-serif;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            margin-top: 25px;
+            animation: slideIn 0.6s ease-out 0.7s forwards;
+            opacity: 0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            box-shadow: 0 10px 30px rgba(255, 0, 0, 0.4);
+        }
+
+        .submit-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .submit-btn:hover::before {
+            left: 100%;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(255, 0, 0, 0.5);
+            background-position: 100% 0;
+        }
+
+        .submit-btn:active {
+            transform: translateY(-1px);
+        }
+
+        .submit-btn i {
+            margin-left: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .submit-btn:hover i {
+            transform: translateX(5px);
+        }
+
+        /* Success Modal */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .success-modal {
+            background: linear-gradient(145deg, #2d0a0a, #1a0505);
+            padding: 50px;
+            border-radius: 30px;
+            text-align: center;
+            border: 2px solid rgba(255, 50, 50, 0.4);
+            animation: modalPop 0.5s ease;
+            max-width: 420px;
+            box-shadow: 0 25px 80px rgba(255, 0, 0, 0.3);
+        }
+
+        @keyframes modalPop {
+            from {
+                opacity: 0;
+                transform: scale(0.5) rotate(-10deg);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) rotate(0);
+            }
+        }
+
+        .success-icon {
+            width: 110px;
+            height: 110px;
+            background: linear-gradient(135deg, #ff0000, #cc0000);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 25px;
+            animation: successPulse 1.5s ease infinite;
+            box-shadow: 0 0 50px rgba(255, 0, 0, 0.5);
+        }
+
+        @keyframes successPulse {
+            0%, 100% {
+                box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.5), 0 0 50px rgba(255, 0, 0, 0.5);
+            }
+            50% {
+                box-shadow: 0 0 0 25px rgba(255, 0, 0, 0), 0 0 80px rgba(255, 0, 0, 0.8);
+            }
+        }
+
+        .success-icon i {
+            font-size: 3.5rem;
+            color: #fff;
+            animation: checkmark 0.5s ease 0.3s forwards;
+            opacity: 0;
+            transform: scale(0);
+        }
+
+        @keyframes checkmark {
+            from {
+                opacity: 0;
+                transform: scale(0) rotate(-180deg);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) rotate(0);
+            }
+        }
+
+        .success-modal h2 {
+            color: #fff;
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+
+        .success-modal p {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+
+        .close-modal {
+            padding: 14px 45px;
+            border: none;
+            border-radius: 30px;
+            background: linear-gradient(135deg, #ff0000, #cc0000);
+            color: #fff;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 10px 30px rgba(255, 0, 0, 0.4);
+        }
+
+        .close-modal:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 40px rgba(255, 0, 0, 0.5);
+        }
+
+        /* Confetti */
+        .confetti {
+            position: fixed;
+            top: -10px;
+            z-index: 1001;
+            animation: confettiFall 3s ease-out forwards;
+        }
+
+        @keyframes confettiFall {
+            to {
+                top: 100vh;
+                opacity: 0;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 500px) {
+            .registration-card {
+                padding: 40px 25px;
+                border-radius: 25px;
+            }
+
+            .logo {
+                font-size: 2rem;
+            }
+
+            .logo-line {
+                font-size: 2.3rem;
+            }
+
+            .sports-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .logo-icon {
+                font-size: 3rem;
+            }
+        }
+
+        /* Loading Animation */
+        .loading {
+            display: none;
+            position: relative;
+        }
+
+        .loading.active {
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .spinner {
+            width: 22px;
+            height: 22px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-top-color: #fff;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+            display: inline-block;
+            margin-right: 12px;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Validation Styles */
+        .form-group input.error,
+        .form-group select.error {
+            border-color: #ff6b6b;
+            animation: shake 0.5s ease;
+            box-shadow: 0 0 20px rgba(255, 100, 100, 0.3);
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-10px); }
+            75% { transform: translateX(10px); }
+        }
+
+        .error-message {
+            color: #ff8888;
+            font-size: 0.8rem;
+            margin-top: 8px;
+            display: none;
+            padding-left: 5px;
+        }
+
+        .error-message.show {
+            display: block;
+            animation: slideIn 0.3s ease;
+        }
+
+        .error-message i {
+            margin-right: 5px;
+        }
+
+        /* Flame Effect */
+        .flame-container {
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 5px;
+        }
+
+        .flame {
+            width: 10px;
+            height: 20px;
+            background: linear-gradient(to top, #ff0000, #ff6600, #ffff00);
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            animation: flicker 0.3s ease-in-out infinite alternate;
+        }
+
+        .flame:nth-child(2) { animation-delay: 0.1s; height: 25px; }
+        .flame:nth-child(3) { animation-delay: 0.2s; height: 18px; }
+
+        @keyframes flicker {
+            from {
+                transform: scaleY(1) scaleX(1);
+                opacity: 0.8;
+            }
+            to {
+                transform: scaleY(1.1) scaleX(0.9);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Background Animation -->
+    <div class="bg-animation">
+        <div class="grid-bg"></div>
+        <div class="orb orb1"></div>
+        <div class="orb orb2"></div>
+        <div class="orb orb3"></div>
+        <div class="orb orb4"></div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="container">
+        <div class="registration-card">
+            <!-- Logo Section -->
+            <div class="logo-section">
+                <div class="logo-icon">🏆</div>
+                <div class="logo">
+                    <span class="logo-line">
+                        <span>S</span><span>P</span><span>O</span><span>R</span><span>T</span>
+                    </span>
+                    <span class="logo-line">
+                        <span>S</span><span>P</span><span>E</span><span>C</span><span>T</span><span>R</span><span>A</span>
+                    </span>
+                </div>
+                <div class="version">🔥 5.0 🔥</div>
+                <p class="tagline"><i class="fas fa-bolt"></i> Ignite Your Champion Spirit <i class="fas fa-bolt"></i></p>
+            </div>
+
+            <div class="decorative-line"></div>
+
+            <!-- Registration Form -->
+            <form id="registrationForm">
+                <div class="form-group">
+                    <label><i class="fas fa-user"></i> Full Name</label>
+                    <div class="input-wrapper">
+                        <input type="text" id="name" placeholder="Enter your full name" required>
+                    </div>
+                    <div class="error-message" id="nameError"><i class="fas fa-exclamation-circle"></i> Please enter your name</div>
+                </div>
+
+                <div class="form-group">
+                    <label><i class="fas fa-id-card"></i> PRN Number</label>
+                    <div class="input-wrapper">
+                        <input type="text" id="prn" placeholder="Enter your PRN" required>
+                    </div>
+                    <div class="error-message" id="prnError"><i class="fas fa-exclamation-circle"></i> Please enter valid PRN</div>
+                </div>
+
+                <div class="form-group">
+                    <label><i class="fas fa-graduation-cap"></i> Class</label>
+                    <div class="input-wrapper">
+                        <select id="class" required>
+                            <option value="">Select your class</option>
+                            <option value="FE">FE - First Year</option>
+                            <option value="SE">SE - Second Year</option>
+                            <option value="TE">TE - Third Year</option>
+                            <option value="BE">BE - Final Year</option>
+                        </select>
+                        <i class="fas fa-chevron-down select-arrow"></i>
+                    </div>
+                    <div class="error-message" id="classError"><i class="fas fa-exclamation-circle"></i> Please select your class</div>
+                </div>
+
+                <div class="form-group">
+                    <label><i class="fas fa-envelope"></i> Email Address</label>
+                    <div class="input-wrapper">
+                        <input type="email" id="email" placeholder="Enter your email" required>
+                    </div>
+                    <div class="error-message" id="emailError"><i class="fas fa-exclamation-circle"></i> Please enter valid email</div>
+                </div>
+
+                <div class="form-group">
+                    <div class="sports-label"><i class="fas fa-trophy"></i> Select Your Sport</div>
+                    <div class="sports-grid">
+                        <div class="sport-option">
+                            <input type="radio" name="sport" id="cricket" value="cricket" required>
+                            <label for="cricket">
+                                <i class="fas fa-baseball-ball"></i>
+                                <span>Cricket</span>
+                            </label>
+                        </div>
+                        <div class="sport-option">
+                            <input type="radio" name="sport" id="football" value="football">
+                            <label for="football">
+                                <i class="fas fa-futbol"></i>
+                                <span>Football</span>
+                            </label>
+                        </div>
+                        <div class="sport-option">
+                            <input type="radio" name="sport" id="basketball" value="basketball">
+                            <label for="basketball">
+                                <i class="fas fa-basketball-ball"></i>
+                                <span>Basketball</span>
+                            </label>
+                        </div>
+                        <div class="sport-option">
+                            <input type="radio" name="sport" id="volleyball" value="volleyball">
+                            <label for="volleyball">
+                                <i class="fas fa-volleyball-ball"></i>
+                                <span>Volleyball</span>
+                            </label>
+                        </div>
+                        <div class="sport-option">
+                            <input type="radio" name="sport" id="badminton" value="badminton">
+                            <label for="badminton">
+                                <i class="fas fa-feather-alt"></i>
+                                <span>Badminton</span>
+                            </label>
+                        </div>
+                        <div class="sport-option">
+                            <input type="radio" name="sport" id="chess" value="chess">
+                            <label for="chess">
+                                <i class="fas fa-chess"></i>
+                                <span>Chess</span>
+                            </label>
+                        </div>
+                        <div class="sport-option">
+                            <input type="radio" name="sport" id="athletics" value="athletics">
+                            <label for="athletics">
+                                <i class="fas fa-running"></i>
+                                <span>Athletics</span>
+                            </label>
+                        </div>
+                        <div class="sport-option">
+                            <input type="radio" name="sport" id="tabletennis" value="tabletennis">
+                            <label for="tabletennis">
+                                <i class="fas fa-table-tennis"></i>
+                                <span>Table Tennis</span>
+                            </label>
+                        </div>
+                        <div class="sport-option">
+                            <input type="radio" name="sport" id="carrom" value="carrom">
+                            <label for="carrom">
+                                <i class="fas fa-circle"></i>
+                                <span>Carrom</span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="error-message" id="sportError"><i class="fas fa-exclamation-circle"></i> Please select a sport</div>
+                </div>
+
+                <button type="submit" class="submit-btn">
+                    <span class="btn-text">Register Now</span>
+                    <span class="loading"><span class="spinner"></span>Processing...</span>
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div class="modal-overlay" id="successModal">
+        <div class="success-modal">
+            <div class="success-icon">
+                <i class="fas fa-check"></i>
+            </div>
+            <h2>🎉 Registration Successful!</h2>
+            <p>Welcome to <strong>Sport Spectra 5.0!</strong><br>Get ready to compete and conquer!</p>
+            <button class="close-modal" onclick="closeModal()">Let's Go! 🚀</button>
+        </div>
+    </div>
+
+    <script>
+        // Create floating sports icons
+        function createFloatingIcons() {
+            const icons = ['⚽', '🏀', '🏈', '⚾', '🎾', '🏐', '🏓', '🏸', '🎯', '🏆', '🥇', '🎖️', '🔥', '💪'];
+            const bgAnimation = document.querySelector('.bg-animation');
+            
+            setInterval(() => {
+                const icon = document.createElement('div');
+                icon.className = 'floating-icon';
+                icon.textContent = icons[Math.floor(Math.random() * icons.length)];
+                icon.style.left = Math.random() * 100 + '%';
+                icon.style.animationDuration = (15 + Math.random() * 10) + 's';
+                icon.style.fontSize = (1.5 + Math.random() * 2) + 'rem';
+                bgAnimation.appendChild(icon);
+                
+                setTimeout(() => icon.remove(), 25000);
+            }, 2500);
+        }
+
+        // Create red particles
+        function createParticles() {
+            const bgAnimation = document.querySelector('.bg-animation');
+            
+            setInterval(() => {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDuration = (5 + Math.random() * 5) + 's';
+                bgAnimation.appendChild(particle);
+                
+                setTimeout(() => particle.remove(), 10000);
+            }, 300);
+        }
+
+        // Create confetti - Red theme colors
+        function createConfetti() {
+            const colors = ['#ff0000', '#ff3333', '#ff6666', '#cc0000', '#ffcc00', '#ff9900', '#ffffff'];
+            
+            for (let i = 0; i < 150; i++) {
+                setTimeout(() => {
+                    const confetti = document.createElement('div');
+                    confetti.className = 'confetti';
+                    confetti.style.left = Math.random() * 100 + '%';
+                    confetti.style.width = (5 + Math.random() * 10) + 'px';
+                    confetti.style.height = (5 + Math.random() * 10) + 'px';
+                    confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
+                    confetti.style.borderRadius = Math.random() > 0.5 ? '50%' : '0';
+                    confetti.style.animationDuration = (2 + Math.random() * 2) + 's';
+                    confetti.style.transform = `rotate(${Math.random() * 360}deg)`;
+                    confetti.style.boxShadow = `0 0 10px ${colors[Math.floor(Math.random() * colors.length)]}`;
+                    document.body.appendChild(confetti);
+                    
+                    setTimeout(() => confetti.remove(), 4000);
+                }, i * 25);
+            }
+        }
+
+        // Form validation
+        function validateForm() {
+            let isValid = true;
+            
+            // Name validation
+            const name = document.getElementById('name');
+            const nameError = document.getElementById('nameError');
+            if (name.value.trim() === '') {
+                name.classList.add('error');
+                nameError.classList.add('show');
+                isValid = false;
+            } else {
+                name.classList.remove('error');
+                nameError.classList.remove('show');
+            }
+            
+            // PRN validation
+            const prn = document.getElementById('prn');
+            const prnError = document.getElementById('prnError');
+            if (prn.value.trim() === '') {
+                prn.classList.add('error');
+                prnError.classList.add('show');
+                isValid = false;
+            } else {
+                prn.classList.remove('error');
+                prnError.classList.remove('show');
+            }
+            
+            // Class validation
+            const classSelect = document.getElementById('class');
+            const classError = document.getElementById('classError');
+            if (classSelect.value === '') {
+                classSelect.classList.add('error');
+                classError.classList.add('show');
+                isValid = false;
+            } else {
+                classSelect.classList.remove('error');
+                classError.classList.remove('show');
+            }
+            
+            // Email validation
+            const email = document.getElementById('email');
+            const emailError = document.getElementById('emailError');
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email.value)) {
+                email.classList.add('error');
+                emailError.classList.add('show');
+                isValid = false;
+            } else {
+                email.classList.remove('error');
+                emailError.classList.remove('show');
+            }
+            
+            // Sport validation
+            const sport = document.querySelector('input[name="sport"]:checked');
+            const sportError = document.getElementById('sportError');
+            if (!sport) {
+                sportError.classList.add('show');
+                isValid = false;
+            } else {
+                sportError.classList.remove('show');
+            }
+            
+            return isValid;
+        }
+
+        // Form submission
+        document.getElementById('registrationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            if (validateForm()) {
+                const btn = document.querySelector('.submit-btn');
+                const btnText = btn.querySelector('.btn-text');
+                const loading = btn.querySelector('.loading');
+                const arrow = btn.querySelector('.fa-arrow-right');
+                
+                btnText.style.display = 'none';
+                arrow.style.display = 'none';
+                loading.classList.add('active');
+                btn.disabled = true;
+                
+                setTimeout(() => {
+                    loading.classList.remove('active');
+                    btnText.style.display = 'inline';
+                    arrow.style.display = 'inline';
+                    btn.disabled = false;
+                    
+                    document.getElementById('successModal').classList.add('active');
+                    createConfetti();
+                }, 2000);
+            }
+        });
+
+        // Close modal
+        function closeModal() {
+            document.getElementById('successModal').classList.remove('active');
+            document.getElementById('registrationForm').reset();
+        }
+
+        // Remove error on input
+        document.querySelectorAll('input, select').forEach(element => {
+            element.addEventListener('input', function() {
+                this.classList.remove('error');
+                const errorElement = this.closest('.form-group').querySelector('.error-message');
+                if (errorElement) {
+                    errorElement.classList.remove('show');
+                }
+            });
+        });
+
+        // Initialize
+        createFloatingIcons();
+        createParticles();
+
+        // Add ripple effect to sport options
+        document.querySelectorAll('.sport-option label').forEach(label => {
+            label.addEventListener('click', function(e) {
+                const ripple = document.createElement('span');
+                ripple.style.position = 'absolute';
+                ripple.style.background = 'rgba(255, 50, 50, 0.4)';
+                ripple.style.borderRadius = '50%';
+                ripple.style.width = '100px';
+                ripple.style.height = '100px';
+                ripple.style.transform = 'translate(-50%, -50%)';
+                ripple.style.animation = 'ripple 0.6s ease-out';
+                ripple.style.left = e.offsetX + 'px';
+                ripple.style.top = e.offsetY + 'px';
+                ripple.style.zIndex = '0';
+                this.appendChild(ripple);
+                setTimeout(() => ripple.remove(), 600);
+            });
+        });
+
+        // Add ripple animation CSS
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes ripple {
+                from {
+                    opacity: 1;
+                    transform: translate(-50%, -50%) scale(0);
+                }
+                to {
+                    opacity: 0;
+                    transform: translate(-50%, -50%) scale(3);
+                }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Keyboard navigation for accessibility
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeModal();
+            }
+        });
+
+        // Close modal on overlay click
+        document.getElementById('successModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+</html>
