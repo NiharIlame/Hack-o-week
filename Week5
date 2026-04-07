@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wanderlust Travels - Travel Blog</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+        }
+        /* Navigation */
+        nav {
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        nav a:hover {
+            background: rgba(255,255,255,0.2);
+        }
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                        url('https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=1200') center/cover;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+        }
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        /* Blog Cards */
+        .blog-section {
+            padding: 2rem 0;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: #2c3e50;
+        }
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+        .blog-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+        .blog-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+        .blog-content {
+            padding: 1.5rem;
+        }
+        .blog-meta {
+            color: #7f8c8d;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+        .blog-title {
+            font-size: 1.5rem;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+        .blog-excerpt {
+            color: #555;
+            margin-bottom: 1rem;
+        }
+        .read-more {
+            display: inline-block;
+            background: #3498db;
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+        .read-more:hover {
+            background: #2980b9;
+        }
+        /* Full Story Sections */
+        .story-section {
+            background: white;
+            margin: 2rem 0;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .story-header {
+            position: relative;
+            height: 400px;
+            overflow: hidden;
+        }
+        .story-header img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .story-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            padding: 2rem;
+            color: white;
+        }
+        .story-overlay h2 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        .story-location {
+            display: inline-block;
+            background: #3498db;
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+        .story-content {
+            padding: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .story-content p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        .story-content h3 {
+            color: #2c3e50;
+            margin: 1.5rem 0 1rem;
+            font-size: 1.5rem;
+        }
+        .story-content ul {
+            margin: 1rem 0;
+            padding-left: 2rem;
+        }
+        .story-content li {
+            margin-bottom: 0.5rem;
+        }
+        /* Footer */
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+        footer a {
+            color: #3498db;
+            text-decoration: none;
+        }
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 1rem;
+            }
+            nav a {
+                font-size: 0.9rem;
+                padding: 0.4rem 0.8rem;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+            .story-header {
+                height: 300px;
+            }
+            .story-overlay h2 {
+                font-size: 1.8rem;
+            }
+            .story-content {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#kyoto">Kyoto</a></li>
+            <li><a href="#tanzania">Tanzania</a></li>
+            <li><a href="#iceland">Iceland</a></li>
+        </ul>
+    </nav>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div>
+            <h1>🌍 Wanderlust Travels</h1>
+            <p>Exploring the world, one adventure at a time</p>
+        </div>
+    </section>
+    <div class="container">
+        <!-- Blog Cards Section -->
+        <section class="blog-section">
+            <h2 class="section-title">Latest Adventures</h2>
+            <div class="blog-grid">
+                <!-- Kyoto Card -->
+                <article class="blog-card">
+                    <img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=600" alt="Kyoto Temple">
+                    <div class="blog-content">
+                        <div class="blog-meta">📍 Kyoto, Japan | March 2024</div>
+                        <h3 class="blog-title">Exploring the Ancient Streets of Kyoto</h3>
+                        <p class="blog-excerpt">Discovering temples, cherry blossoms, and the timeless beauty of Japan's cultural heart...</p>
+                        <a href="#kyoto" class="read-more">Read Story</a>
+                    </div>
+                </article>
+                <!-- Tanzania Card -->
+                <article class="blog-card">
+                    <img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?w=600" alt="Safari">
+                    <div class="blog-content">
+                        <div class="blog-meta">📍 Serengeti, Tanzania | January 2024</div>
+                        <h3 class="blog-title">Safari Adventures in Tanzania</h3>
+                        <p class="blog-excerpt">Witnessing the great migration and encountering the majestic wildlife of the African savanna...</p>
+                        <a href="#tanzania" class="read-more">Read Story</a>
+                    </div>
+                </article>
+                <!-- Iceland Card -->
+                <article class="blog-card">
+                    <img src="https://images.unsplash.com/photo-1531366936337-7c912a4589a7?w=600" alt="Northern Lights">
+                    <div class="blog-content">
+                        <div class="blog-meta">📍 Iceland | November 2023</div>
+                        <h3 class="blog-title">Chasing Northern Lights in Iceland</h3>
+                        <p class="blog-excerpt">A magical journey through glaciers, waterfalls, and the breathtaking aurora borealis...</p>
+                        <a href="#iceland" class="read-more">Read Story</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+        <!-- Full Story: Kyoto -->
+        <section class="story-section" id="kyoto">
+            <div class="story-header">
+                <img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=1200" alt="Kyoto">
+                <div class="story-overlay">
+                    <h2>Exploring the Ancient Streets of Kyoto</h2>
+                    <span class="story-location">📍 Kyoto, Japan | March 2024</span>
+                </div>
+            </div>
+            <div class="story-content">
+                <p>Kyoto stole my heart from the moment I stepped off the train. This ancient capital of Japan, with its over 2,000 temples and shrines, offered a perfect blend of tradition and modernity that I had only dreamed of.</p>
+                
+                <h3>Temple Hopping in Arashiyama</h3>
+                <p>The bamboo grove at Arashiyama was absolutely magical. Walking through those towering green stalks felt like stepping into another world. The soft rustling sound and dappled sunlight created an atmosphere of pure serenity.</p>
+                
+                <h3>Cherry Blossom Season</h3>
+                <p>Timing my visit during sakura season was the best decision. The parks along the Kamo River were filled with locals and tourists alike, all picnicking under the pink and white canopy of cherry blossoms.</p>
+                
+                <h3>Traditional Tea Ceremony</h3>
+                <p>I participated in a traditional tea ceremony in Gion, the famous geisha district. The precision and mindfulness required to prepare matcha was a meditation in itself. The bitter taste of the tea perfectly complemented the sweet wagashi.</p>
+                
+                <ul>
+                    <li>🏯 Visit Fushimi Inari Shrine at sunrise</li>
+                    <li>🍜 Try authentic ramen in Pontocho Alley</li>
+                    <li>👘 Rent a kimono for a traditional photo experience</li>
+                    <li>🌸 Stroll through Maruyama Park during cherry blossom season</li>
+                </ul>
+            </div>
+        </section>
+        <!-- Full Story: Tanzania -->
+        <section class="story-section" id="tanzania">
+            <div class="story-header">
+                <img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?w=1200" alt="Tanzania Safari">
+                <div class="story-overlay">
+                    <h2>Safari Adventures in Tanzania</h2>
+                    <span class="story-location">📍 Serengeti, Tanzania | January 2024</span>
+                </div>
+            </div>
+            <div class="story-content">
+                <p>The Serengeti is not just a place; it's an experience that changes you. Standing in a safari vehicle, surrounded by the vast African savanna, watching lions hunt and elephants roam freely, I felt truly connected to the wild.</p>
+                
+                <h3>The Great Migration</h3>
+                <p>We were lucky enough to witness the great migration in progress. Millions of wildebeest and zebras moving across the plains, with predators lurking everywhere. The sound of hooves thundering across the earth was unforgettable.</p>
+                
+                <h3>Lion Encounter</h3>
+                <p>Our guide spotted a pride of lions resting in the shade. Watching them interact, play, and eventually hunt was both thrilling and humbling. The power and grace of these magnificent creatures is something I'll never forget.</p>
+                
+                <h3>Sunset on the Savanna</h3>
+                <p>There's nothing quite like an African sunset. The sky transforms into a canvas of orange, pink, and purple while silhouettes of acacia trees stand against the horizon. It's a daily reminder of nature's artistry.</p>
+                
+                <ul>
+                    <li>🦁 Book a sunrise game drive for the best wildlife viewing</li>
+                    <li>📸 Bring a camera with at least 300mm zoom lens</li>
+                    <li>☀️ Pack layers - mornings are cold, days are hot</li>
+                    <li>🌙 Consider a hot air balloon safari for a unique perspective</li>
+                </ul>
+            </div>
+        </section>
+        <!-- Full Story: Iceland -->
+        <section class="story-section" id="iceland">
+            <div class="story-header">
+                <img src="https://images.unsplash.com/photo-1531366936337-7c912a4589a7?w=1200" alt="Iceland">
+                <div class="story-overlay">
+                    <h2>Chasing Northern Lights in Iceland</h2>
+                    <span class="story-location">📍 Iceland | November 2023</span>
+                </div>
+            </div>
+            <div class="story-content">
+                <p>Iceland is a land of fire and ice, where glaciers meet volcanoes and the northern lights dance across the sky. My week-long adventure through this Nordic island was filled with wonder at every turn.</p>
+                
+                <h3>Aurora Hunting</h3>
+                <p>Three nights of chasing the aurora borealis finally paid off. On the third night, the sky erupted with green and purple ribbons of light. Standing in the freezing cold, watching the northern lights, was the most magical experience of my life.</p>
+                
+                <h3>Glacier Hiking</h3>
+                <p>Hiking on the Vatnajökull glacier was surreal. Walking on ice that's hundreds of years old, exploring ice caves, and seeing blue ice formations that looked like they belonged in another world.</p>
+                
+                <h3>Golden Circle</h3>
+                <p>The Golden Circle route took us through Thingvellir National Park, where we could walk between two tectonic plates, the geysers of Geysir, and the magnificent Gullfoss waterfall. Each stop was more impressive than the last.</p>
+                
+                <h3>Blue Lagoon Relaxation</h3>
+                <p>After days of adventure, soaking in the geothermal waters of the Blue Lagoon was pure bliss. The mineral-rich waters and steam rising into the cold air created a spa experience like no other.</p>
+                
+                <ul>
+                    <li>🌌 Download an aurora forecast app for best viewing</li>
+                    <li>🥾 Rent proper hiking gear for glacier adventures</li>
+                    <li>🚗 Consider a 4x4 rental for off-the-beaten-path exploration</li>
+                    <li>🧴 Pack thermal layers and waterproof boots</li>
+                </ul>
+            </div>
+        </section>
+    </div>
+    <!-- Footer -->
+    <footer>
+        <p>© 2024 Wanderlust Travels | <a href="#home">Back to Top</a></p>
+        <p>Follow my adventures on <a href="#">Instagram</a> | <a href="#">Twitter</a></p>
+    </footer>
+</body>
+</html>
