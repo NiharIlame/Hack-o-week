@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Elite Web Development Bootcamp</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:#0a0f1c;
+color:white;
+line-height:1.6;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+/* NAVBAR */
+.navbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:18px 50px;
+background:rgba(0,0,0,0.6);
+position:sticky;
+top:0;
+z-index:1000;
+backdrop-filter:blur(10px);
+}
+
+.logo{
+font-size:26px;
+font-weight:800;
+background:linear-gradient(90deg,#00f2fe,#4facfe);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.nav-links a{
+color:white;
+text-decoration:none;
+margin-left:25px;
+font-weight:500;
+transition:0.3s;
+}
+
+.nav-links a:hover{
+color:#00f2fe;
+}
+
+/* HERO */
+.hero{
+height:92vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:20px;
+background:radial-gradient(circle at top,#13203f,#05070f);
+}
+
+.hero h1{
+font-size:52px;
+max-width:900px;
+margin-bottom:20px;
+font-weight:800;
+background:linear-gradient(90deg,#00f2fe,#4facfe,#00f2fe);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.hero p{
+font-size:18px;
+max-width:650px;
+color:#cfcfcf;
+margin-bottom:30px;
+}
+
+.btn{
+padding:14px 30px;
+border:none;
+border-radius:30px;
+font-weight:600;
+cursor:pointer;
+background:linear-gradient(90deg,#00f2fe,#4facfe);
+transition:0.3s;
+}
+
+.btn:hover{
+transform:scale(1.08);
+}
+
+/* STATS */
+.stats{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+text-align:center;
+padding:50px;
+background:#05070f;
+}
+
+.stat h2{
+font-size:36px;
+color:#00f2fe;
+}
+
+.stat p{
+color:#cfcfcf;
+}
+
+/* FEATURES */
+.features{
+padding:70px 40px;
+text-align:center;
+}
+
+.section-title{
+font-size:34px;
+margin-bottom:40px;
+color:#00f2fe;
+}
+
+.feature-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:25px;
+}
+
+.card{
+background:#11162a;
+padding:28px;
+border-radius:14px;
+box-shadow:0 10px 25px rgba(0,0,0,0.5);
+transition:0.3s;
+}
+
+.card:hover{
+transform:translateY(-8px);
+}
+
+.card h3{
+margin-bottom:12px;
+color:#4facfe;
+}
+
+.card p{
+font-size:14px;
+color:#d0d0d0;
+}
+
+/* CURRICULUM */
+.curriculum{
+padding:70px 40px;
+text-align:center;
+background:#05070f;
+}
+
+.curriculum ul{
+list-style:none;
+max-width:650px;
+margin:auto;
+}
+
+.curriculum li{
+background:#11162a;
+padding:16px;
+margin:12px 0;
+border-radius:10px;
+}
+
+/* TESTIMONIALS */
+.testimonials{
+padding:70px 40px;
+text-align:center;
+}
+
+.testimonial-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:25px;
+}
+
+.testimonial{
+background:#11162a;
+padding:25px;
+border-radius:14px;
+}
+
+.testimonial p{
+font-style:italic;
+color:#d0d0d0;
+}
+
+.testimonial h4{
+margin-top:15px;
+color:#00f2fe;
+}
+
+/* PRICING */
+.pricing{
+padding:70px 40px;
+text-align:center;
+background:#05070f;
+}
+
+.price-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:25px;
+}
+
+.price-card{
+background:#11162a;
+padding:30px;
+border-radius:16px;
+}
+
+.price-card h3{
+color:#00f2fe;
+margin-bottom:10px;
+}
+
+.price{
+font-size:34px;
+margin:15px 0;
+}
+
+/* CONTACT */
+.contact{
+padding:70px 40px;
+text-align:center;
+}
+
+form{
+max-width:500px;
+margin:auto;
+}
+
+input,textarea{
+width:100%;
+padding:14px;
+margin:10px 0;
+border:none;
+border-radius:8px;
+}
+
+/* FOOTER */
+footer{
+background:black;
+padding:25px;
+text-align:center;
+font-size:14px;
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+.hero h1{
+font-size:34px;
+}
+
+.navbar{
+flex-direction:column;
+gap:10px;
+}
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+<div class="logo">EliteCode Bootcamp</div>
+<div class="nav-links">
+<a href="#features">Features</a>
+<a href="#curriculum">Curriculum</a>
+<a href="#pricing">Pricing</a>
+<a href="#contact">Contact</a>
+</div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+<h1>Launch Your Career as a Professional Web Developer</h1>
+<p>Join India's most practical Web Development Bootcamp. Learn Full Stack Development, build real projects, and get job-ready in just a few months.</p>
+<button class="btn">Enroll Now</button>
+</section>
+
+<!-- STATS -->
+<section class="stats">
+<div class="stat">
+<h2>10,000+</h2>
+<p>Students Trained</p>
+</div>
+<div class="stat">
+<h2>95%</h2>
+<p>Placement Rate</p>
+</div>
+<div class="stat">
+<h2>120+</h2>
+<p>Hiring Partners</p>
+</div>
+<div class="stat">
+<h2>4.9★</h2>
+<p>Student Rating</p>
+</div>
+</section>
+
+<!-- FEATURES -->
+<section class="features" id="features">
+<h2 class="section-title">Why Choose Our Bootcamp?</h2>
+
+<div class="feature-grid">
+
+<div class="card">
+<h3>Real Projects</h3>
+<p>Build industry-level projects for your portfolio.</p>
+</div>
+
+<div class="card">
+<h3>Industry Mentors</h3>
+<p>Learn directly from experienced developers.</p>
+</div>
+
+<div class="card">
+<h3>Placement Support</h3>
+<p>Resume, mock interviews, and job referrals.</p>
+</div>
+
+<div class="card">
+<h3>Live Classes</h3>
+<p>Interactive sessions with doubt solving.</p>
+</div>
+
+</div>
+</section>
+
+<!-- CURRICULUM -->
+<section class="curriculum" id="curriculum">
+<h2 class="section-title">Course Curriculum</h2>
+
+<ul>
+<li>HTML, CSS & Responsive Design</li>
+<li>JavaScript & DOM Projects</li>
+<li>React Frontend Development</li>
+<li>Node.js & Express Backend</li>
+<li>Database (MongoDB / MySQL)</li>
+<li>API Development</li>
+<li>Deployment & Hosting</li>
+</ul>
+
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+<h2 class="section-title">Student Testimonials</h2>
+
+<div class="testimonial-grid">
+
+<div class="testimonial">
+<p>"This bootcamp helped me land my first developer job in just 3 months."</p>
+<h4>Rahul Sharma</h4>
+</div>
+
+<div class="testimonial">
+<p>"Best practical training and amazing mentors. Highly recommended."</p>
+<h4>Priya Verma</h4>
+</div>
+
+<div class="testimonial">
+<p>"I built real projects and gained confidence in coding."</p>
+<h4>Amit Patel</h4>
+</div>
+
+</div>
+
+</section>
+
+<!-- PRICING -->
+<section class="pricing" id="pricing">
+<h2 class="section-title">Course Pricing</h2>
+
+<div class="price-grid">
+
+<div class="price-card">
+<h3>Basic</h3>
+<p class="price">₹4,999</p>
+<p>Recorded Classes</p>
+<p>Projects</p>
+<br>
+<button class="btn">Enroll</button>
+</div>
+
+<div class="price-card">
+<h3>Pro</h3>
+<p class="price">₹9,999</p>
+<p>Live Classes</p>
+<p>Projects</p>
+<p>Placement Support</p>
+<br>
+<button class="btn">Enroll</button>
+</div>
+
+<div class="price-card">
+<h3>Premium</h3>
+<p class="price">₹14,999</p>
+<p>Live Classes</p>
+<p>1:1 Mentorship</p>
+<p>Placement Guarantee</p>
+<br>
+<button class="btn">Enroll</button>
+</div>
+
+</div>
+
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+<h2 class="section-title">Register Now</h2>
+
+<form>
+<input type="text" placeholder="Full Name" required>
+<input type="email" placeholder="Email Address" required>
+<input type="tel" placeholder="Phone Number" required>
+<textarea rows="4" placeholder="Message"></textarea>
+
+<button class="btn" type="submit">Submit</button>
+
+</form>
+
+</section>
+
+<footer>
+<p>© 2026 EliteCode Bootcamp | All Rights Reserved</p>
+</footer>
+
+</body>
+</html>
